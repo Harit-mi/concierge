@@ -13,7 +13,7 @@ export interface IconProps extends React.SVGProps<SVGSVGElement> {
 }
 
 // 1. Shopping Bag — Haute Couture Boutique Tote
-export function IconShoppingBag({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconShoppingBag({ className = 'w-4 h-4', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -36,7 +36,7 @@ export function IconShoppingBag({ className = 'w-4 h-4', size, strokeWidth = 1.5
 }
 
 // 2. Clothes Hanger — Designer Runway Apparel
-export function IconHanger({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconHanger({ className = 'w-4 h-4', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -58,7 +58,7 @@ export function IconHanger({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...
 }
 
 // 3. Sneaker — Archival & Deadstock Footwear
-export function IconSneaker({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconSneaker({ className = 'w-4 h-4', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -83,7 +83,7 @@ export function IconSneaker({ className = 'w-4 h-4', size, strokeWidth = 1.5, ..
 }
 
 // 4. Archival Parcel / Dispatch Box
-export function IconPackage({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconPackage({ className = 'w-4 h-4', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -106,7 +106,7 @@ export function IconPackage({ className = 'w-4 h-4', size, strokeWidth = 1.5, ..
 }
 
 // 5. Delivery Truck — Armored / Insured Priority Transit
-export function IconTruck({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconTruck({ className = 'w-4 h-4', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -130,7 +130,7 @@ export function IconTruck({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...p
 }
 
 // 6. Receipt — Itemized Forensic Quotation Docket
-export function IconReceipt({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconReceipt({ className = 'w-4 h-4', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -154,7 +154,7 @@ export function IconReceipt({ className = 'w-4 h-4', size, strokeWidth = 1.5, ..
 }
 
 // 7. Concierge Chat / Communications Parlor
-export function IconChat({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconChat({ className = 'w-4 h-4', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -178,7 +178,7 @@ export function IconChat({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...pr
 }
 
 // 8. Check Circle — Verification & Authenticity Seal
-export function IconCheckCircle({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconCheckCircle({ className = 'w-4 h-4', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -200,7 +200,7 @@ export function IconCheckCircle({ className = 'w-4 h-4', size, strokeWidth = 1.5
 }
 
 // 9. Shield — Physical Intake Forensics & Integrity
-export function IconShield({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconShield({ className = 'w-4 h-4', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -222,7 +222,7 @@ export function IconShield({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...
 }
 
 // 10. Lock — Fiduciary Security & Escrow Safeguard
-export function IconLock({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconLock({ className = 'w-4 h-4', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -244,7 +244,7 @@ export function IconLock({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...pr
 }
 
 // 11. Directional Arrow Right — High-Touch Trajectory
-export function IconArrowRight({ className = 'w-3.5 h-3.5', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconArrowRight({ className = 'w-3.5 h-3.5', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -266,7 +266,7 @@ export function IconArrowRight({ className = 'w-3.5 h-3.5', size, strokeWidth = 
 }
 
 // 12. Directional Arrow Left
-export function IconArrowLeft({ className = 'w-3.5 h-3.5', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconArrowLeft({ className = 'w-3.5 h-3.5', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -288,7 +288,7 @@ export function IconArrowLeft({ className = 'w-3.5 h-3.5', size, strokeWidth = 1
 }
 
 // 13. Chevron Down
-export function IconChevronDown({ className = 'w-3 h-3', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconChevronDown({ className = 'w-3 h-3', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -309,7 +309,7 @@ export function IconChevronDown({ className = 'w-3 h-3', size, strokeWidth = 1.5
 }
 
 // 14. Document Download
-export function IconDownload({ className = 'w-3.5 h-3.5', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconDownload({ className = 'w-3.5 h-3.5', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -332,7 +332,7 @@ export function IconDownload({ className = 'w-3.5 h-3.5', size, strokeWidth = 1.
 }
 
 // 15. User Profile
-export function IconUser({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconUser({ className = 'w-4 h-4', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -354,7 +354,7 @@ export function IconUser({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...pr
 }
 
 // 16. Menu Trigger (Drawer)
-export function IconMenu({ className = 'w-5 h-5', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconMenu({ className = 'w-5 h-5', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -377,7 +377,7 @@ export function IconMenu({ className = 'w-5 h-5', size, strokeWidth = 1.5, ...pr
 }
 
 // 17. Close / Dismiss
-export function IconClose({ className = 'w-5 h-5', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconClose({ className = 'w-5 h-5', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -399,7 +399,7 @@ export function IconClose({ className = 'w-5 h-5', size, strokeWidth = 1.5, ...p
 }
 
 // 18. Clock — 48-Hour Rate Hold
-export function IconClock({ className = 'w-3.5 h-3.5', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconClock({ className = 'w-3.5 h-3.5', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -421,7 +421,7 @@ export function IconClock({ className = 'w-3.5 h-3.5', size, strokeWidth = 1.5, 
 }
 
 // 19. Send / Transmit Note
-export function IconSend({ className = 'w-3.5 h-3.5', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconSend({ className = 'w-3.5 h-3.5', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -443,7 +443,7 @@ export function IconSend({ className = 'w-3.5 h-3.5', size, strokeWidth = 1.5, .
 }
 
 // 20. File / Dossier Record
-export function IconFileText({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconFileText({ className = 'w-4 h-4', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -468,7 +468,7 @@ export function IconFileText({ className = 'w-4 h-4', size, strokeWidth = 1.5, .
 }
 
 // 21. Alert Triangle — Compliance & Pilot Warning
-export function IconAlert({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconAlert({ className = 'w-4 h-4', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -491,7 +491,7 @@ export function IconAlert({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...p
 }
 
 // 22. Search / Optical Scout
-export function IconSearch({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconSearch({ className = 'w-4 h-4', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -513,7 +513,7 @@ export function IconSearch({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...
 }
 
 // 23. User Check — Persona Switcher & Identity Verified
-export function IconUserCheck({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconUserCheck({ className = 'w-4 h-4', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -536,7 +536,7 @@ export function IconUserCheck({ className = 'w-4 h-4', size, strokeWidth = 1.5, 
 }
 
 // 24. Filter — Parametric Refinement
-export function IconFilter({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconFilter({ className = 'w-4 h-4', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -557,7 +557,7 @@ export function IconFilter({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...
 }
 
 // 25. External Link — Retailer Provenance Sourcing
-export function IconExternalLink({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconExternalLink({ className = 'w-4 h-4', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -580,7 +580,7 @@ export function IconExternalLink({ className = 'w-4 h-4', size, strokeWidth = 1.
 }
 
 // 26. Plus — Commission New Sourcing Piece
-export function IconPlus({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconPlus({ className = 'w-4 h-4', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -602,7 +602,7 @@ export function IconPlus({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...pr
 }
 
 // 27. Ban — Prohibited Cargo & Restricted Goods
-export function IconBan({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconBan({ className = 'w-4 h-4', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -624,7 +624,7 @@ export function IconBan({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...pro
 }
 
 // 28. History — Audit Trail & Ledger Chain
-export function IconHistory({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconHistory({ className = 'w-4 h-4', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -647,7 +647,7 @@ export function IconHistory({ className = 'w-4 h-4', size, strokeWidth = 1.5, ..
 }
 
 // 29. MapPin — Mainland US Destination Anchor
-export function IconMapPin({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconMapPin({ className = 'w-4 h-4', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -669,7 +669,7 @@ export function IconMapPin({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...
 }
 
 // 30. Mail — Private Client Desk Dispatch
-export function IconMail({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconMail({ className = 'w-4 h-4', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -691,7 +691,7 @@ export function IconMail({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...pr
 }
 
 // 31. Phone — Dedicated Concierge Liaison Line
-export function IconPhone({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconPhone({ className = 'w-4 h-4', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -712,7 +712,7 @@ export function IconPhone({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...p
 }
 
 // 32. Layout Dashboard — Executive Command Radar
-export function IconLayoutDashboard({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconLayoutDashboard({ className = 'w-4 h-4', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -736,7 +736,7 @@ export function IconLayoutDashboard({ className = 'w-4 h-4', size, strokeWidth =
 }
 
 // 33. Credit Card — Escrow Authorization & Payment
-export function IconCreditCard({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconCreditCard({ className = 'w-4 h-4', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -758,7 +758,7 @@ export function IconCreditCard({ className = 'w-4 h-4', size, strokeWidth = 1.5,
 }
 
 // 34. Upload — Media Dossier Ingestion
-export function IconUpload({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconUpload({ className = 'w-4 h-4', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -781,7 +781,7 @@ export function IconUpload({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...
 }
 
 // 35. Trash / Delete — Reset Form & Remove Specimen
-export function IconTrash({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconTrash({ className = 'w-4 h-4', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -804,7 +804,7 @@ export function IconTrash({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...p
 }
 
 // 36. Save — Client Draft Auto-Preservation
-export function IconSave({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconSave({ className = 'w-4 h-4', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -827,7 +827,7 @@ export function IconSave({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...pr
 }
 
 // 37. Info — Guidance & Policy Disclosure
-export function IconInfo({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconInfo({ className = 'w-4 h-4', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -850,7 +850,7 @@ export function IconInfo({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...pr
 }
 
 // 38. Chart / Analytics — Actuarial Yield & Metrics
-export function IconChart({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconChart({ className = 'w-4 h-4', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -873,7 +873,7 @@ export function IconChart({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...p
 }
 
 // 39. Bell / Notifications — Dispatch & Quote Alerts
-export function IconBell({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconBell({ className = 'w-4 h-4', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -895,7 +895,7 @@ export function IconBell({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...pr
 }
 
 // 40. Calculator — Itemized Actuarial Ledger Modeling
-export function IconCalculator({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconCalculator({ className = 'w-4 h-4', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -925,7 +925,7 @@ export function IconCalculator({ className = 'w-4 h-4', size, strokeWidth = 1.5,
 }
 
 // 41. Eye — Live Client Appraisal Preview
-export function IconEye({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconEye({ className = 'w-4 h-4', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -947,7 +947,7 @@ export function IconEye({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...pro
 }
 
 // 42. Star — Client Receipt Satisfaction Rating
-export function IconStar({ className = 'w-4 h-4', size, strokeWidth = 1.5, ...props }: IconProps) {
+export function IconStar({ className = 'w-4 h-4', size, strokeWidth = 1.15, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"

@@ -131,31 +131,33 @@ export default function OrderTrackingPage() {
   const currentStageIndex = Math.max(0, stageOrder.indexOf(currentStatus));
 
   return (
-    <div className="py-12 md:py-20 px-4 sm:px-6 lg:px-12 max-w-5xl mx-auto space-y-10 text-[#111215]">
+    <div className="py-12 md:py-20 px-4 sm:px-6 lg:px-12 max-w-5xl mx-auto space-y-10 text-[#121212]">
       {/* Top Breadcrumb */}
-      <div className="flex items-center justify-between border-b border-[#E3D8CB] pb-3">
+      <div className="flex items-center justify-between border-b border-[#E5E3DC] pb-3">
         <Link
           href="/dashboard"
-          className="text-xs font-mono uppercase tracking-[0.16em] text-[#575A6B] hover:text-[#111215] flex items-center gap-2"
+          className="text-xs font-mono uppercase tracking-[0.16em] text-[#5A5852] hover:text-[#121212] flex items-center gap-2"
         >
-          <IconArrowLeft className="w-3.5 h-3.5 text-[#846337]" />
-          <span>Return to Client Desk</span>
+          <IconArrowLeft className="w-3.5 h-3.5" />
+          <span>Return to Client Portal</span>
         </Link>
-        <span className="text-[10px] font-mono text-[#846337] uppercase tracking-widest">
-          Custody Order: {activeOrder.orderNumber}
+        <span className="text-[10px] font-mono text-[#5A5852] uppercase tracking-widest">
+          Order: {activeOrder.orderNumber}
         </span>
       </div>
 
       {/* Main Order Dossier Header */}
-      <div className="luxury-card p-8 sm:p-10 bg-white border border-[#E3D8CB] space-y-6 shadow-luxury">
-        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between pb-6 border-b border-[#E3D8CB] gap-3">
+      <div className="bg-white border border-[#E5E3DC] p-8 sm:p-10 space-y-6 shadow-sm rounded-[1px]">
+        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between pb-6 border-b border-[#E5E3DC] gap-3">
           <div className="space-y-1">
-            <span className="ledger-stamp">CUSTODY COCKPIT</span>
-            <h1 className="font-display text-3xl sm:text-4xl font-light text-[#111215]">
+            <span className="font-sans text-[11px] font-medium tracking-[0.22em] uppercase text-[#121212] border-l-2 border-[#121212] pl-3">
+              Order Fulfillment Desk
+            </span>
+            <h1 className="font-serif text-3xl sm:text-4xl font-light text-[#121212]">
               {request.productName}
             </h1>
-            <p className="text-xs font-mono text-[#575A6B]">
-              Fashion House: {request.brand} &bull; Sizing: <strong className="text-[#111215] font-semibold">{request.sizeVariant}</strong> &bull; Destination: ZIP {request.destinationPostalCode}
+            <p className="text-xs font-mono text-[#5A5852]">
+              Brand: {request.brand} &bull; Sizing: <strong className="text-[#121212] font-semibold">{request.sizeVariant}</strong> &bull; Destination: ZIP {request.destinationPostalCode}
             </p>
           </div>
           <StatusBadge status={currentStatus as any} size="md" />
@@ -163,24 +165,24 @@ export default function OrderTrackingPage() {
 
         {/* Live Shipment & Tracking Card (If Available) */}
         {activeOrder.trackingNumber ? (
-          <div className="p-5 dossier-paper border border-[#C4A575] flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-mono text-xs">
+          <div className="p-5 bg-[#F3F2EC] border border-[#E5E3DC] flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-mono text-xs rounded-[1px]">
             <div className="flex items-center gap-3.5">
-              <div className="w-10 h-10 bg-[#111215] text-[#C4A575] flex items-center justify-center border border-[#C4A575]">
+              <div className="w-10 h-10 bg-[#121212] text-[#FAF9F5] flex items-center justify-center">
                 <IconTruck className="w-5 h-5" />
               </div>
               <div>
-                <span className="text-[9.5px] text-[#575A6B] uppercase tracking-wider block">Assigned Domestic Carrier</span>
-                <span className="font-bold text-[#111215] text-sm">{activeOrder.carrierName}</span>
+                <span className="text-[10px] text-[#5A5852] uppercase tracking-wider block">Assigned Domestic Carrier</span>
+                <span className="font-semibold text-[#121212] text-sm">{activeOrder.carrierName}</span>
               </div>
             </div>
 
             <div className="sm:text-right">
-              <span className="text-[9.5px] text-[#575A6B] uppercase tracking-wider block">Tracking Reference</span>
+              <span className="text-[10px] text-[#5A5852] uppercase tracking-wider block">Tracking Reference</span>
               <a
                 href={activeOrder.trackingUrl || `https://www.ups.com/track?tracknum=${activeOrder.trackingNumber}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#846337] hover:text-[#111215] font-bold text-xs underline underline-offset-2 flex items-center gap-1 sm:justify-end"
+                className="text-[#121212] hover:text-[#5A5852] font-semibold text-xs underline underline-offset-2 flex items-center gap-1 sm:justify-end"
               >
                 <span>{activeOrder.trackingNumber}</span>
                 <IconExternalLink className="w-3 h-3" />
@@ -191,18 +193,20 @@ export default function OrderTrackingPage() {
       </div>
 
       {/* 7-STAGE VERTICAL TIMELINE */}
-      <div className="luxury-card p-8 sm:p-12 bg-white border border-[#E3D8CB] space-y-8 shadow-luxury">
-        <div className="border-b border-[#E3D8CB] pb-4">
-          <span className="ledger-stamp">OPERATIONAL AUDIT TRAIL</span>
-          <h2 className="font-display text-2xl font-light text-[#111215] mt-1">
-            Order Fulfilment Milestone Timeline
+      <div className="bg-white border border-[#E5E3DC] p-8 sm:p-12 space-y-8 shadow-sm rounded-[1px]">
+        <div className="border-b border-[#E5E3DC] pb-4">
+          <span className="font-sans text-[11px] font-medium tracking-[0.22em] uppercase text-[#121212] border-l-2 border-[#121212] pl-3">
+            Milestone Timeline
+          </span>
+          <h2 className="font-serif text-2xl font-light text-[#121212] mt-1">
+            Order Fulfillment Milestones
           </h2>
-          <p className="text-xs text-[#575A6B] font-mono mt-0.5">
-            Every step is recorded with chronological timestamps following physical inspection at our Manhattan facility.
+          <p className="text-xs text-[#5A5852] font-sans mt-0.5">
+            Every step is recorded with chronological timestamps following physical inspection at our Manhattan intake desk.
           </p>
         </div>
 
-        <div className="relative pl-6 sm:pl-8 space-y-8 before:absolute before:left-2.5 sm:before:left-3 before:top-3 before:bottom-3 before:w-0.5 before:bg-[#E3D8CB]">
+        <div className="relative pl-6 sm:pl-8 space-y-8 before:absolute before:left-2.5 sm:before:left-3 before:top-3 before:bottom-3 before:w-0.5 before:bg-[#E5E3DC]">
           {timelineStages.map((stage, idx) => {
             const isCompleted = idx <= currentStageIndex;
             const isCurrent = idx === currentStageIndex;
@@ -213,10 +217,10 @@ export default function OrderTrackingPage() {
                 <div
                   className={`absolute -left-6 sm:-left-8 w-5 sm:w-6 h-5 sm:h-6 rounded-full flex items-center justify-center font-mono text-[10px] transition-all ${
                     isCurrent
-                      ? 'bg-[#111215] text-[#C4A575] ring-4 ring-[#EFE8E0] font-bold'
+                      ? 'bg-[#121212] text-[#FAF9F5] ring-4 ring-[#E5E3DC] font-bold'
                       : isCompleted
                       ? 'bg-emerald-800 text-white'
-                      : 'bg-[#FAF7F2] text-[#8E91A1] border border-[#E3D8CB]'
+                      : 'bg-[#F3F2EC] text-[#8A8880] border border-[#E5E3DC]'
                   }`}
                 >
                   {isCompleted ? '✓' : idx + 1}
@@ -224,14 +228,14 @@ export default function OrderTrackingPage() {
 
                 <div className="space-y-1.5 flex-1">
                   <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
-                    <h3 className={`font-display text-lg sm:text-xl font-bold ${isCurrent ? 'text-[#111215]' : isCompleted ? 'text-[#111215]' : 'text-[#8E91A1]'}`}>
+                    <h3 className={`font-serif text-lg sm:text-xl font-normal ${isCurrent ? 'text-[#121212]' : isCompleted ? 'text-[#121212]' : 'text-[#8A8880]'}`}>
                       {stage.title}
                     </h3>
-                    <span className="text-[10px] font-mono text-[#846337]">
+                    <span className="text-[10px] font-mono text-[#5A5852]">
                       {stage.timestamp}
                     </span>
                   </div>
-                  <p className="text-xs text-[#575A6B] leading-relaxed font-sans max-w-2xl">
+                  <p className="text-xs text-[#5A5852] leading-relaxed font-sans max-w-2xl">
                     {stage.description}
                   </p>
                 </div>
@@ -244,61 +248,61 @@ export default function OrderTrackingPage() {
       {/* DOCUMENT VAULT & ORDER SUPPORT CHAT */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Document Vault */}
-        <div className="luxury-card p-6 sm:p-8 bg-white border border-[#E3D8CB] space-y-4">
-          <div className="flex items-center gap-2 border-b border-[#E3D8CB] pb-3">
-            <IconFileText className="w-4 h-4 text-[#846337]" />
-            <h3 className="font-display text-xl font-bold text-[#111215]">
-              Permitted Document Vault
+        <div className="bg-white border border-[#E5E3DC] p-6 sm:p-8 space-y-4 shadow-sm rounded-[1px]">
+          <div className="flex items-center gap-2 border-b border-[#E5E3DC] pb-3">
+            <IconFileText className="w-4 h-4 text-[#121212]" />
+            <h3 className="font-serif text-xl font-normal text-[#121212]">
+              Order Documents
             </h3>
           </div>
-          <p className="text-xs text-[#575A6B] font-mono">
-            Download verified appraisal certificates, provenance invoices, and optical QA sheets.
+          <p className="text-xs text-[#5A5852] font-sans">
+            Download verified appraisal certificates, provenance receipts, and intake verification reports.
           </p>
 
           <div className="space-y-2.5 pt-2">
-            <div className="p-3 dossier-paper border border-[#E3D8CB] flex items-center justify-between text-xs font-mono">
+            <div className="p-3 bg-[#F3F2EC] border border-[#E5E3DC] flex items-center justify-between text-xs font-mono rounded-[1px]">
               <div className="flex items-center gap-2">
                 <IconShield className="w-4 h-4 text-emerald-800 shrink-0" />
-                <span>Forensic Certificate &bull; PDF</span>
+                <span>Verification Certificate &bull; PDF</span>
               </div>
               <button
                 type="button"
                 onClick={() => alert('Certificate downloaded.')}
-                className="text-[#846337] hover:text-[#111215] flex items-center gap-1"
+                className="text-[#121212] hover:text-[#5A5852] flex items-center gap-1 font-sans text-xs underline underline-offset-2"
               >
                 <IconDownload className="w-3.5 h-3.5" />
-                <span>Get</span>
+                <span>Download</span>
               </button>
             </div>
 
-            <div className="p-3 dossier-paper border border-[#E3D8CB] flex items-center justify-between text-xs font-mono">
+            <div className="p-3 bg-[#F3F2EC] border border-[#E5E3DC] flex items-center justify-between text-xs font-mono rounded-[1px]">
               <div className="flex items-center gap-2">
-                <IconReceipt className="w-4 h-4 text-[#846337] shrink-0" />
+                <IconReceipt className="w-4 h-4 text-[#121212] shrink-0" />
                 <span>Acquisition Invoice &bull; PDF</span>
               </div>
               <button
                 type="button"
                 onClick={() => alert('Invoice downloaded.')}
-                className="text-[#846337] hover:text-[#111215] flex items-center gap-1"
+                className="text-[#121212] hover:text-[#5A5852] flex items-center gap-1 font-sans text-xs underline underline-offset-2"
               >
                 <IconDownload className="w-3.5 h-3.5" />
-                <span>Get</span>
+                <span>Download</span>
               </button>
             </div>
           </div>
         </div>
 
         {/* Order Support & Delivery Confirmation */}
-        <div className="luxury-card p-6 sm:p-8 bg-white border border-[#E3D8CB] space-y-4">
-          <div className="flex items-center gap-2 border-b border-[#E3D8CB] pb-3">
-            <IconChat className="w-4 h-4 text-[#846337]" />
-            <h3 className="font-display text-xl font-bold text-[#111215]">
-              Order Concierge Hotline
+        <div className="bg-white border border-[#E5E3DC] p-6 sm:p-8 space-y-4 shadow-sm rounded-[1px]">
+          <div className="flex items-center gap-2 border-b border-[#E5E3DC] pb-3">
+            <IconChat className="w-4 h-4 text-[#121212]" />
+            <h3 className="font-serif text-xl font-normal text-[#121212]">
+              Concierge Direct Desk
             </h3>
           </div>
 
-          <form onSubmit={handleSendOrderSupport} className="space-y-3 font-mono text-xs">
-            <label className="text-[10px] uppercase text-[#575A6B] font-semibold block">
+          <form onSubmit={handleSendOrderSupport} className="space-y-3 font-sans text-xs">
+            <label className="text-[11px] uppercase text-[#5A5852] font-medium block">
               Direct Note to Assigned Specialist:
             </label>
             <div className="flex gap-2">
@@ -307,14 +311,14 @@ export default function OrderTrackingPage() {
                 value={supportMessage}
                 onChange={(e) => setSupportMessage(e.target.value)}
                 placeholder="Specific delivery instructions or scheduling inquiries..."
-                className="luxury-input flex-1 p-2.5 text-xs"
+                className="editorial-input flex-1 p-2.5 text-xs font-sans"
               />
               <button
                 type="submit"
-                className="btn-obsidian px-5 py-2.5 text-[11px] flex items-center gap-1.5 shrink-0"
+                className="btn-noir px-5 py-2.5 text-xs flex items-center gap-1.5 shrink-0"
               >
-                <IconSend className="w-3 h-3 text-[#C4A575]" />
-                <span>Transmit</span>
+                <IconSend className="w-3 h-3 text-[#FAF9F5]" />
+                <span>Send</span>
               </button>
             </div>
             {messageSent && (

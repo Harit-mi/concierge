@@ -1,9 +1,9 @@
 import jwt from 'jsonwebtoken';
 import { cookies } from 'next/headers';
 import db from './db';
+import { getConfig } from './config';
 import { User, UserRole } from '@/types';
 
-const JWT_SECRET = process.env.JWT_SECRET || 'concierge_luxury_jwt_secure_secret_key_2026_x';
 const COOKIE_NAME = 'concierge_session';
 
 export interface SessionPayload {
@@ -14,12 +14,14 @@ export interface SessionPayload {
 }
 
 export function signToken(payload: SessionPayload): string {
-  return jwt.sign(payload, JWT_SECRET, { expiresIn: '7d' });
+  const secret = getConfig().jwtSecret;
+  return jwt.sign(payload, secret, { expiresIn: '7d' });
 }
 
 export function verifyToken(token: string): SessionPayload | null {
   try {
-    return jwt.verify(token, JWT_SECRET) as SessionPayload;
+    const secret = getConfig().jwtSecret;
+    return jwt.verify(token, secret) as SessionPayload;
   } catch {
     return null;
   }

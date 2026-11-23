@@ -53,22 +53,22 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-md mx-auto space-y-8 text-[#141519]">
+    <div className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-md mx-auto space-y-8 text-[#121212]">
       <div className="text-center space-y-2">
-        <div className="w-10 h-10 rounded-sm bg-[#141519] border border-[#A38054] text-[#DFCCA8] flex items-center justify-center font-serif text-lg font-bold mx-auto mb-3 shadow-xs">
+        <div className="w-10 h-10 bg-[#121212] text-[#FAF9F5] flex items-center justify-center font-serif text-lg font-light mx-auto mb-3 shadow-xs">
           V
         </div>
-        <h1 className="font-serif text-2xl sm:text-4xl font-bold text-[#141519] tracking-tight">
+        <h1 className="font-serif text-2xl sm:text-4xl font-light text-[#121212] tracking-tight">
           Create Client Profile
         </h1>
-        <p className="text-xs text-[#5C5F6D] font-sans">
+        <p className="text-xs text-[#5A5852] font-sans">
           Join Veritas to track sourcing requests, review quotes, and monitor order progress.
         </p>
       </div>
 
-      <div className="ivory-card p-6 sm:p-8 rounded-sm bg-white border border-[#EAE4D9] shadow-sm space-y-6">
+      <div className="p-6 sm:p-8 bg-white border border-[#E5E3DC] shadow-sm space-y-6 rounded-[1px]">
         {error && (
-          <div className="bg-rose-50 border border-rose-200 text-rose-800 p-3.5 rounded-xs text-xs flex items-center gap-2">
+          <div className="bg-rose-50 border border-rose-200 text-rose-800 p-3.5 text-xs flex items-center gap-2">
             <IconAlert className="w-4 h-4 shrink-0 text-rose-600" />
             <span>{error}</span>
           </div>
@@ -76,7 +76,7 @@ export default function RegisterPage() {
 
         <form onSubmit={handleRegister} className="space-y-4">
           <div className="space-y-2">
-            <label className="text-[11px] font-mono uppercase tracking-wider text-[#141519] font-semibold block">
+            <label className="text-[11px] font-mono uppercase tracking-wider text-[#121212] font-medium block">
               Full Name *
             </label>
             <input
@@ -85,12 +85,12 @@ export default function RegisterPage() {
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               placeholder="e.g. Clara Dupont"
-              className="ivory-input w-full p-2.5 rounded-sm text-xs font-mono"
+              className="editorial-input w-full p-2.5 text-xs font-sans"
             />
           </div>
 
           <div className="space-y-2">
-            <label className="text-[11px] font-mono uppercase tracking-wider text-[#141519] font-semibold block">
+            <label className="text-[11px] font-mono uppercase tracking-wider text-[#121212] font-medium block">
               Email Address *
             </label>
             <input
@@ -99,12 +99,12 @@ export default function RegisterPage() {
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               placeholder="clara@example.com"
-              className="ivory-input w-full p-2.5 rounded-sm text-xs font-mono"
+              className="editorial-input w-full p-2.5 text-xs font-sans"
             />
           </div>
 
           <div className="space-y-2">
-            <label className="text-[11px] font-mono uppercase tracking-wider text-[#141519] font-semibold block">
+            <label className="text-[11px] font-mono uppercase tracking-wider text-[#121212] font-medium block">
               Mobile Phone
             </label>
             <input
@@ -112,12 +112,12 @@ export default function RegisterPage() {
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
               placeholder="+1 (555) 012-7890"
-              className="ivory-input w-full p-2.5 rounded-sm text-xs font-mono"
+              className="editorial-input w-full p-2.5 text-xs font-sans"
             />
           </div>
 
           <div className="space-y-2">
-            <label className="text-[11px] font-mono uppercase tracking-wider text-[#141519] font-semibold block">
+            <label className="text-[11px] font-mono uppercase tracking-wider text-[#121212] font-medium block">
               Password (Min 8 Characters) *
             </label>
             <input
@@ -126,23 +126,23 @@ export default function RegisterPage() {
               value={formData.password}
               onChange={(e) => setFormData({ ...formData, password: e.target.value })}
               placeholder="••••••••••••"
-              className="ivory-input w-full p-2.5 rounded-sm text-xs font-mono"
+              className="editorial-input w-full p-2.5 text-xs font-sans"
             />
           </div>
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full btn-obsidian py-4 text-xs shadow-luxury flex items-center justify-center gap-2 group"
+            className="w-full btn-noir py-4 text-xs flex items-center justify-center gap-2 group"
           >
             <span>{loading ? 'Creating Profile...' : 'Create Account'}</span>
-            <IconArrowRight className="w-3.5 h-3.5 text-[#C4A575] group-hover:translate-x-1.5 transition-transform" />
+            <IconArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
           </button>
         </form>
 
-        <div className="pt-4 border-t border-[#F2EDE4] text-center text-xs text-[#5C5F6D] font-sans">
+        <div className="pt-4 border-t border-[#E5E3DC] text-center text-xs text-[#5A5852] font-sans">
           Already have an account?{' '}
-          <Link href="/auth/login" className="font-semibold text-[#A38054] underline underline-offset-4 hover:text-[#141519]">
+          <Link href="/auth/login" className="font-medium text-[#121212] underline underline-offset-4 hover:text-[#5A5852]">
             Sign In
           </Link>
         </div>

@@ -1,22 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Manrope:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --font-cormorant: 'Cormorant Garamond', Didot, 'Bodoni MT', Georgia, serif;
-  --font-manrope: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --bg-canvas: #FAF7F2;
+  --font-bodoni: 'Bodoni Moda', Didot, 'Bodoni MT', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  --bg-canvas: #FAF9F5;
   --bg-card: #FFFFFF;
-  --bg-parchment: #F4EFEA;
-  --bg-dossier: #EFE8E0;
-  --border-hairline: #E3D8CB;
-  --border-gilt: #C4A575;
-  --text-obsidian: #111215;
-  --text-muted: #575A6B;
-  --accent-gilt: #9E7A4A;
-  --accent-gilt-hover: #846337;
+  --bg-surface: #F3F2EC;
+  --bg-surface-hover: #ECEAE2;
+  
+  --border-hairline: #E5E3DC;
+  --border-subtle: #ECEAE3;
+  --border-dark: #121212;
+  
+  --text-primary: #121212;
+  --text-secondary: #5A5852;
+  --text-tertiary: #8C8A82;
+  
+  --accent-noir: #121212;
+  --accent-warm: #7A654C;
 }
 
 html,
@@ -24,359 +30,297 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   background-color: var(--bg-canvas);
-  color: var(--text-obsidian);
-  font-family: var(--font-manrope);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
   font-feature-settings: "cv02", "cv03", "cv04", "cv11", "kern", "liga", "calt";
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom Editorial Luxury Scrollbar */
+/* Subtle, unpretentious scrollbar */
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  width: 4px;
+  height: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #FAF7F2;
+  background: #FAF9F5;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #D5C9B8;
-  border-radius: 2px;
+  background: #D8D6CF;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #A8957F;
+  background: #B5B2A8;
 }
 
 /* ==========================================================================
-   TYPOGRAPHY SUITE & HIERARCHY
+   HIGH-FASHION EDITORIAL TYPOGRAPHY SUITE
    ========================================================================== */
 
 .font-display {
-  font-family: var(--font-cormorant), 'Cormorant Garamond', Didot, Georgia, serif;
+  font-family: var(--font-bodoni), 'Bodoni Moda', Didot, Georgia, serif;
   font-feature-settings: "liga", "kern", "calt";
   font-optical-sizing: auto;
 }
 
 .font-editorial-italic {
-  font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-bodoni), 'Bodoni Moda', Georgia, serif;
   font-style: italic;
-  font-feature-settings: "liga", "kern", "calt", "swsh";
+  font-feature-settings: "liga", "kern", "calt";
 }
 
-.font-sans-editorial {
-  font-family: var(--font-manrope), sans-serif;
-  letter-spacing: -0.005em;
+.font-sans-clean {
+  font-family: var(--font-sans), sans-serif;
+  letter-spacing: -0.01em;
 }
 
-.font-mono-ledger {
+.font-mono-numbers {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-variant-numeric: tabular-nums lining-nums;
 }
 
-/* Editorial Heading & Subtext Scales */
+/* Editorial Heading Scales */
 .editorial-kicker {
-  font-family: var(--font-manrope), sans-serif;
-  font-size: 10.5px;
+  font-family: var(--font-sans), sans-serif;
+  font-size: 10px;
   font-weight: 600;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: #846337;
+  color: var(--text-secondary);
 }
 
 .editorial-headline {
-  font-family: var(--font-cormorant), Georgia, serif;
-  letter-spacing: -0.025em;
-  line-height: 0.95;
-  font-weight: 300;
-  color: #111215;
+  font-family: var(--font-bodoni), Georgia, serif;
+  letter-spacing: -0.02em;
+  line-height: 0.96;
+  font-weight: 400;
+  color: var(--text-primary);
 }
 
 .editorial-subhead {
-  font-family: var(--font-manrope), sans-serif;
+  font-family: var(--font-sans), sans-serif;
   font-size: 15px;
-  line-height: 1.65;
-  color: #575A6B;
+  line-height: 1.6;
+  color: var(--text-secondary);
 }
 
-/* Serial & Ledger Seals */
 .ledger-stamp {
-  font-family: var(--font-manrope), sans-serif;
-  font-size: 9.5px;
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: #846337;
-  border-left: 2px solid #9E7A4A;
-  padding-left: 0.5rem;
-  display: inline-flex;
-  align-items: center;
-}
-
-/* ==========================================================================
-   TACTILE LUXURY BUTTONS
-   ========================================================================== */
-
-/* 1. Primary Signature Black-Tie CTA */
-.btn-obsidian {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #0D0E12;
-  color: #FAF7F2;
-  border: 1px solid #1C1E26;
-  border-radius: 2px;
-  font-family: var(--font-manrope), sans-serif;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  cursor: pointer;
-  user-select: none;
-  overflow: hidden;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 2px 6px rgba(13, 14, 18, 0.35);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.btn-obsidian::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -150%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(196, 165, 117, 0.22), transparent);
-  transform: skewX(-25deg);
-  transition: left 0.75s ease;
-  pointer-events: none;
-}
-
-.btn-obsidian:hover {
-  background-color: #171922;
-  border-color: #C4A575;
-  color: #FFFFFF;
-  transform: translateY(-1.5px);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 10px 24px -4px rgba(13, 14, 18, 0.45), 0 0 18px -2px rgba(196, 165, 117, 0.28);
-}
-
-.btn-obsidian:hover::after {
-  left: 200%;
-}
-
-.btn-obsidian:active {
-  transform: translateY(0.5px);
-  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.2);
-}
-
-.btn-obsidian:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 2px #FAF7F2, 0 0 0 4px #C4A575;
-}
-
-/* 2. Archival Gilt / Burnished Bronze CTA */
-.btn-gilt {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #A88656 0%, #8C6A3C 100%);
-  color: #FFFFFF;
-  border: 1px solid #C4A575;
-  border-radius: 2px;
-  font-family: var(--font-manrope), sans-serif;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  cursor: pointer;
-  user-select: none;
-  overflow: hidden;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28), 0 2px 8px rgba(140, 106, 60, 0.3);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.btn-gilt::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -150%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
-  transform: skewX(-25deg);
-  transition: left 0.75s ease;
-  pointer-events: none;
-}
-
-.btn-gilt:hover {
-  background: linear-gradient(135deg, #B89360 0%, #9E7A4A 100%);
-  border-color: #E2CFB0;
-  color: #FFFFFF;
-  transform: translateY(-1.5px);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 10px 24px -4px rgba(158, 122, 74, 0.45);
-}
-
-.btn-gilt:hover::after {
-  left: 200%;
-}
-
-.btn-gilt:active {
-  transform: translateY(0.5px);
-  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.4);
-}
-
-.btn-gilt:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 2px #FAF7F2, 0 0 0 4px #9E7A4A;
-}
-
-/* 3. Minimalist Luxury Outline CTA */
-.btn-luxury-outline {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.6);
-  color: #111215;
-  border: 1px solid #D5C9B8;
-  border-radius: 2px;
-  font-family: var(--font-manrope), sans-serif;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  cursor: pointer;
-  user-select: none;
-  box-shadow: 0 1px 2px rgba(17, 18, 21, 0.03);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.btn-luxury-outline:hover {
-  background: #0D0E12;
-  border-color: #0D0E12;
-  color: #FAF7F2;
-  transform: translateY(-1.5px);
-  box-shadow: 0 8px 20px -4px rgba(17, 18, 21, 0.25);
-}
-
-.btn-luxury-outline:active {
-  transform: translateY(0.5px);
-  box-shadow: 0 1px 3px rgba(17, 18, 21, 0.15);
-}
-
-.btn-luxury-outline:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 2px #FAF7F2, 0 0 0 4px #C4A575;
-}
-
-/* 4. Editorial Interactive Text Link Action */
-.btn-editorial-text {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: var(--font-manrope), sans-serif;
-  font-size: 11px;
+  font-family: var(--font-sans), sans-serif;
+  font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #111215;
-  position: relative;
-  padding-bottom: 2px;
-  transition: color 0.25s ease;
-}
-
-.btn-editorial-text::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background-color: #846337;
-  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.btn-editorial-text:hover {
-  color: #846337;
-}
-
-.btn-editorial-text:hover::after {
-  width: 100%;
+  color: var(--text-primary);
+  border-left: 2px solid var(--text-primary);
+  padding-left: 0.6rem;
+  display: inline-flex;
+  align-items: center;
 }
 
 /* ==========================================================================
-   SURFACES, CARDS & INPUTS
+   QUIET LUXURY BUTTON HIERARCHY (NO GIMMICKY GLOWS OR FAKE GOLD)
    ========================================================================== */
 
-.luxury-card {
+/* 1. Primary Noir CTA */
+.btn-noir {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #121212;
+  color: #FAF9F5;
+  border: 1px solid #121212;
+  border-radius: 1px;
+  font-family: var(--font-sans), sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.btn-noir:hover {
+  background-color: #2E2E2E;
+  border-color: #2E2E2E;
+  color: #FFFFFF;
+}
+
+.btn-noir:active {
+  background-color: #000000;
+}
+
+.btn-noir:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px #FAF9F5, 0 0 0 4px #121212;
+}
+
+/* 2. Secondary Clean Alabaster CTA */
+.btn-secondary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F3F2EC;
+  color: #121212;
+  border: 1px solid #E0DED6;
+  border-radius: 1px;
+  font-family: var(--font-sans), sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #E8E6DE;
+  border-color: #121212;
+}
+
+/* 3. Hairline Minimalist Outline CTA */
+.btn-outline {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: #121212;
+  border: 1px solid #121212;
+  border-radius: 1px;
+  font-family: var(--font-sans), sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.25s ease;
+}
+
+.btn-outline:hover {
+  background-color: #121212;
+  color: #FAF9F5;
+}
+
+/* 4. Understated Editorial Text Link */
+.btn-text-editorial {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-sans), sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #121212;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: #D5D3CC;
+  transition: text-decoration-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-text-editorial:hover {
+  color: #000000;
+  text-decoration-color: #121212;
+}
+
+/* Aliases for backwards compatibility */
+.btn-obsidian {
+  @apply btn-noir;
+}
+
+.btn-gilt {
+  @apply btn-noir;
+}
+
+.btn-luxury-outline {
+  @apply btn-outline;
+}
+
+.btn-editorial-text {
+  @apply btn-text-editorial;
+}
+
+/* ==========================================================================
+   CLEAN SURFACES, CARDS & INPUTS
+   ========================================================================== */
+
+.editorial-card {
   background-color: #FFFFFF;
-  border: 1px solid #E3D8CB;
-  border-radius: 2px;
-  box-shadow: 0 1px 3px rgba(17, 18, 21, 0.02), 0 10px 30px -4px rgba(17, 18, 21, 0.03);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid var(--border-hairline);
+  border-radius: 1px;
+  transition: border-color 0.25s ease;
 }
 
-.luxury-card:hover {
-  border-color: #C4A575;
-  box-shadow: 0 4px 16px -2px rgba(17, 18, 21, 0.05), 0 20px 40px -8px rgba(158, 122, 74, 0.12);
+.editorial-card:hover {
+  border-color: #B5B2A8;
 }
 
-.dossier-paper {
-  background-color: #F8F5EE;
-  border: 1px solid #E3D8CB;
-  border-radius: 2px;
+.editorial-card-subtle {
+  background-color: #F8F7F2;
+  border: 1px solid var(--border-hairline);
+  border-radius: 1px;
 }
 
 .hairline-rule {
-  border-color: #E3D8CB;
+  border-color: var(--border-hairline);
 }
 
-.gilt-rule {
-  border-color: #C4A575;
-}
-
-/* Editorial Inputs */
-.luxury-input {
+.editorial-input {
   background-color: #FFFFFF;
-  border: 1px solid #DBD0C2;
-  border-radius: 2px;
-  color: #111215;
-  font-family: var(--font-manrope), sans-serif;
-  transition: all 0.2s ease;
+  border: 1px solid #D8D6CF;
+  border-radius: 1px;
+  color: #121212;
+  font-family: var(--font-sans), sans-serif;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.luxury-input:focus {
+.editorial-input:focus {
   outline: none;
-  border-color: #9E7A4A;
-  box-shadow: 0 0 0 1px #9E7A4A, 0 0 14px -2px rgba(158, 122, 74, 0.25);
+  border-color: #121212;
+  box-shadow: 0 0 0 1px #121212;
 }
 
-/* Backward compatibility aliases */
+/* Legacy utility aliases */
+.luxury-card {
+  @apply editorial-card;
+}
+
+.dossier-paper {
+  @apply editorial-card-subtle;
+}
+
+.luxury-input {
+  @apply editorial-input;
+}
+
 .ivory-card {
-  @apply luxury-card;
+  @apply editorial-card;
 }
 
 .ivory-card-subtle {
-  @apply dossier-paper;
+  @apply editorial-card-subtle;
 }
 
 .ivory-input {
-  @apply luxury-input;
+  @apply editorial-input;
 }
 
 .btn-softblack {
-  @apply btn-obsidian;
+  @apply btn-noir;
 }
 
 .btn-bronze {
-  @apply btn-gilt;
+  @apply btn-noir;
 }
 
 .btn-ivory-outline {
-  @apply btn-luxury-outline;
+  @apply btn-outline;
 }

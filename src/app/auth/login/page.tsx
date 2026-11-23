@@ -54,41 +54,41 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-md mx-auto space-y-8 text-[#141519]">
+    <div className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-md mx-auto space-y-8 text-[#121212]">
       <div className="text-center space-y-2">
-        <div className="w-10 h-10 rounded-sm bg-[#141519] border border-[#A38054] text-[#DFCCA8] flex items-center justify-center font-serif text-lg font-bold mx-auto mb-3 shadow-xs">
+        <div className="w-10 h-10 bg-[#121212] text-[#FAF9F5] flex items-center justify-center font-serif text-lg font-light mx-auto mb-3 shadow-xs">
           V
         </div>
-        <h1 className="font-serif text-2xl sm:text-4xl font-bold text-[#141519] tracking-tight">
+        <h1 className="font-serif text-2xl sm:text-4xl font-light text-[#121212] tracking-tight">
           Client & Staff Access
         </h1>
-        <p className="text-xs text-[#5C5F6D] font-sans">
-          Access your private sourcing dashboard or operations radar console.
+        <p className="text-xs text-[#5A5852] font-sans">
+          Access your private sourcing portal or operations desk.
         </p>
       </div>
 
       {/* Quick Demo Switcher Card */}
-      <div className="ivory-card p-4 rounded-sm bg-white border border-[#D8C3A4] space-y-3 text-xs shadow-xs">
-        <div className="flex items-center justify-between text-[#141519] font-semibold font-mono text-[11px]">
+      <div className="p-4 bg-white border border-[#E5E3DC] space-y-3 text-xs shadow-sm rounded-[1px]">
+        <div className="flex items-center justify-between text-[#121212] font-medium font-mono text-[11px]">
           <span className="flex items-center gap-1.5">
-            <IconUser className="w-3.5 h-3.5 text-[#A38054]" />
-            <span>1-Click Demo Personas:</span>
+            <IconUser className="w-3.5 h-3.5 text-[#121212]" />
+            <span>Pilot Test Personas:</span>
           </span>
-          <span className="text-[10px] text-[#717584] font-mono">Pass: password123</span>
+          <span className="text-[10px] text-[#5A5852] font-mono">Pass: password123</span>
         </div>
         <div className="grid grid-cols-3 gap-2 font-mono">
           <button
             type="button"
             onClick={() => handleQuickDemo('customer@example.com')}
-            className="p-2.5 bg-[#FAF8F5] rounded-xs border border-[#E2DDD2] hover:border-[#A38054] text-[#141519] text-[11px] font-medium text-center transition-all"
+            className="p-2.5 bg-[#F3F2EC] border border-[#E5E3DC] hover:border-[#121212] text-[#121212] text-[11px] font-medium text-center transition-all rounded-[1px]"
           >
             Client <br />
-            <span className="text-[9.5px] text-[#7A603D]">Alexander</span>
+            <span className="text-[9.5px] text-[#5A5852]">Alexander</span>
           </button>
           <button
             type="button"
             onClick={() => handleQuickDemo('concierge@example.com')}
-            className="p-2.5 bg-[#FAF8F5] rounded-xs border border-[#E2DDD2] hover:border-blue-500 text-[#141519] text-[11px] font-medium text-center transition-all"
+            className="p-2.5 bg-[#F3F2EC] border border-[#E5E3DC] hover:border-blue-500 text-[#121212] text-[11px] font-medium text-center transition-all rounded-[1px]"
           >
             Concierge <br />
             <span className="text-[9.5px] text-blue-700">Julian</span>
@@ -96,7 +96,7 @@ export default function LoginPage() {
           <button
             type="button"
             onClick={() => handleQuickDemo('admin@example.com')}
-            className="p-2.5 bg-[#FAF8F5] rounded-xs border border-[#E2DDD2] hover:border-purple-500 text-[#141519] text-[11px] font-medium text-center transition-all"
+            className="p-2.5 bg-[#F3F2EC] border border-[#E5E3DC] hover:border-purple-500 text-[#121212] text-[11px] font-medium text-center transition-all rounded-[1px]"
           >
             Director <br />
             <span className="text-[9.5px] text-purple-700">Eleanor</span>
@@ -104,9 +104,9 @@ export default function LoginPage() {
         </div>
       </div>
 
-      <div className="ivory-card p-6 sm:p-8 rounded-sm bg-white border border-[#EAE4D9] shadow-sm space-y-6">
+      <div className="p-6 sm:p-8 bg-white border border-[#E5E3DC] shadow-sm space-y-6 rounded-[1px]">
         {error && (
-          <div className="bg-rose-50 border border-rose-200 text-rose-800 p-3.5 rounded-xs text-xs flex items-center gap-2">
+          <div className="bg-rose-50 border border-rose-200 text-rose-800 p-3.5 text-xs flex items-center gap-2">
             <IconAlert className="w-4 h-4 shrink-0 text-rose-600" />
             <span>{error}</span>
           </div>
@@ -114,7 +114,7 @@ export default function LoginPage() {
 
         <form onSubmit={handleLogin} className="space-y-4">
           <div className="space-y-2">
-            <label className="text-[11px] font-mono uppercase tracking-wider text-[#141519] block font-semibold">
+            <label className="text-[11px] font-mono uppercase tracking-wider text-[#121212] block font-medium">
               Email Address
             </label>
             <input
@@ -123,12 +123,12 @@ export default function LoginPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="name@example.com"
-              className="ivory-input w-full p-2.5 rounded-sm text-xs font-mono"
+              className="editorial-input w-full p-2.5 text-xs font-sans"
             />
           </div>
 
           <div className="space-y-2">
-            <label className="text-[11px] font-mono uppercase tracking-wider text-[#141519] block font-semibold">
+            <label className="text-[11px] font-mono uppercase tracking-wider text-[#121212] block font-medium">
               Password
             </label>
             <input
@@ -137,23 +137,23 @@ export default function LoginPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••••••"
-              className="ivory-input w-full p-2.5 rounded-sm text-xs font-mono"
+              className="editorial-input w-full p-2.5 text-xs font-sans"
             />
           </div>
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full btn-obsidian py-4 text-xs shadow-luxury flex items-center justify-center gap-2 group"
+            className="w-full btn-noir py-4 text-xs flex items-center justify-center gap-2 group"
           >
-            <span>{loading ? 'Authenticating...' : 'Sign In to Console'}</span>
-            <IconArrowRight className="w-3.5 h-3.5 text-[#C4A575] group-hover:translate-x-1.5 transition-transform" />
+            <span>{loading ? 'Authenticating...' : 'Sign In to Portal'}</span>
+            <IconArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
           </button>
         </form>
 
-        <div className="pt-4 border-t border-[#F2EDE4] text-center text-xs text-[#5C5F6D] font-sans">
+        <div className="pt-4 border-t border-[#E5E3DC] text-center text-xs text-[#5A5852] font-sans">
           Do not have an account yet?{' '}
-          <Link href="/auth/register" className="font-semibold text-[#A38054] underline underline-offset-4 hover:text-[#141519]">
+          <Link href="/auth/register" className="font-medium text-[#121212] underline underline-offset-4 hover:text-[#5A5852]">
             Create Client Profile
           </Link>
         </div>

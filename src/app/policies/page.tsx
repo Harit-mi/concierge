@@ -29,20 +29,22 @@ function PoliciesContent() {
   ];
 
   return (
-    <div className="py-16 md:py-28 px-4 sm:px-6 lg:px-12 max-w-5xl mx-auto space-y-12 text-[#111215]">
+    <div className="py-16 md:py-28 px-4 sm:px-6 lg:px-12 max-w-5xl mx-auto space-y-12 text-[#121212]">
       {/* Header */}
       <div className="text-center space-y-4 max-w-2xl mx-auto">
-        <span className="ledger-stamp">GOVERNANCE & FIDUCIARY CHARTER</span>
-        <h1 className="font-display text-4xl sm:text-6xl font-light tracking-tight text-[#111215]">
+        <span className="font-sans text-[11px] font-medium tracking-[0.22em] uppercase text-[#121212] border-l-2 border-[#121212] pl-3">
+          Governance & Standards
+        </span>
+        <h1 className="font-serif text-4xl sm:text-6xl font-light tracking-tight text-[#121212]">
           Standards & Protocols
         </h1>
-        <p className="text-xs sm:text-sm text-[#575A6B] font-mono leading-relaxed">
-          Veritas operates as an intimate, managed personal procurement service. We enforce strict physical forensics, transparent fee structures, and domestic pilot boundaries.
+        <p className="text-xs sm:text-sm text-[#5A5852] font-sans leading-relaxed">
+          Veritas operates as an intimate, managed personal procurement service. We enforce strict in-person verification, transparent fee structures, and domestic pilot boundaries.
         </p>
       </div>
 
       {/* Tabs navigation */}
-      <div className="flex items-center gap-2 overflow-x-auto pb-2 border-b border-[#E3D8CB] font-sans text-xs">
+      <div className="flex items-center gap-2 overflow-x-auto pb-2 border-b border-[#E5E3DC] font-sans text-xs">
         {sections.map((sec) => {
           const Icon = sec.icon;
           const isActive = activeTab === sec.id;
@@ -52,11 +54,11 @@ function PoliciesContent() {
               onClick={() => setActiveTab(sec.id)}
               className={`flex items-center gap-2 px-5 py-3 whitespace-nowrap transition-all uppercase tracking-[0.16em] text-[10.5px] border-b-2 -mb-[2px] ${
                 isActive
-                  ? 'border-[#9E7A4A] text-[#111215] bg-white font-bold shadow-xs'
-                  : 'border-transparent text-[#575A6B] hover:text-[#111215]'
+                  ? 'border-[#121212] text-[#121212] bg-white font-semibold'
+                  : 'border-transparent text-[#5A5852] hover:text-[#121212]'
               }`}
             >
-              <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-[#846337]' : 'text-[#8E91A1]'}`} />
+              <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-[#121212]' : 'text-[#8A8880]'}`} />
               <span>{sec.label}</span>
             </button>
           );
@@ -64,7 +66,7 @@ function PoliciesContent() {
       </div>
 
       {/* Active Tab Content Card */}
-      <div className="luxury-card p-8 sm:p-12 bg-white border border-[#E3D8CB] shadow-luxury space-y-8">
+      <div className="bg-white border border-[#E5E3DC] p-8 sm:p-12 shadow-sm space-y-8 rounded-[1px]">
         {activeTab === 'authenticity' && (
           <div className="space-y-6 font-sans text-xs">
             <div className="border-b border-[#F2EDE4] pb-3">

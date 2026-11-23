@@ -10,8 +10,12 @@
 
 # SQLite local DB & test runs
 *.db
+*.db-shm
+*.db-wal
 *.sqlite
 /test-artifacts/
+/.test-dist/
+/backups/
 
 # Logs
 npm-debug.log*
@@ -19,7 +23,9 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# Environment & credentials
+# TypeScript
+*.tsbuildinfo
+
 .env*.local
 .env
 *.pem

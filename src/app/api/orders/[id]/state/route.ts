@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import db from '@/lib/db';
+import db, { withTransaction } from '@/lib/db';
 import { getSession } from '@/lib/auth';
 import { canTransition, OrderStatus } from '@/lib/state-machine';
 import { recordAuditLog } from '@/lib/audit';
@@ -46,50 +46,64 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
 
     const now = new Date().toISOString();
 
-    // 1. Update Order status
-    db.prepare(`
-      UPDATE orders
-      SET status = ?, updated_at = ?
-      WHERE id = ?
-    `).run(targetStatus, now, orderId);
+    withTransaction((txDb) => {
+      // 1. Update Order status
+      txDb.prepare(`
+        UPDATE orders
+        SET status = ?, updated_at = ?
+        WHERE id = ?
+      `).run(targetStatus, now, orderId);
 
-    // 2. Synchronize associated product_requests status
-    db.prepare(`
-      UPDATE product_requests
-      SET status = ?, updated_at = ?
-      WHERE id = ?
-    `).run(targetStatus, now, order.request_id);
+      // 2. Synchronize associated product_requests status
+      txDb.prepare(`
+        UPDATE product_requests
+        SET status = ?, updated_at = ?
+        WHERE id = ?
+      `).run(targetStatus, now, order.request_id);
 
-    // 3. Record Order Status History
-    db.prepare(`
-      INSERT INTO order_status_history (id, order_id, from_status, to_status, changed_by_user_id, note, created_at)
-      VALUES (?, ?, ?, ?, ?, ?, ?)
-    `).run(`osh-${Date.now()}`, orderId, order.status, targetStatus, sessionUser.id, note || null, now);
+      // 3. Record Order Status History
+      txDb.prepare(`
+        INSERT INTO order_status_history (id, order_id, from_status, to_status, changed_by_user_id, note, created_at)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+      `).run(`osh-${Date.now()}`, orderId, order.status, targetStatus, sessionUser.id, note || null, now);
 
-    // 4. Record Request Status History
-    db.prepare(`
-      INSERT INTO request_status_history (id, request_id, from_status, to_status, changed_by_user_id, note, created_at)
-      VALUES (?, ?, ?, ?, ?, ?, ?)
-    `).run(`rsh-${Date.now()}`, order.request_id, order.status, targetStatus, sessionUser.id, note || null, now);
+      // 4. Record Request Status History
+      txDb.prepare(`
+        INSERT INTO request_status_history (id, request_id, from_status, to_status, changed_by_user_id, note, created_at)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+      `).run(`rsh-${Date.now()}`, order.request_id, order.status, targetStatus, sessionUser.id, note || null, now);
 
-    // 5. Send Notification to Customer if updated by operator
-    if (sessionUser.role !== 'CUSTOMER') {
-      db.prepare(`
-        INSERT INTO notifications (id, user_id, title, body, link_url, created_at)
-        VALUES (?, ?, 'Order Status Update', ?, ?, ?)
+      // 5. Send Notification to Customer if updated by operator
+      if (sessionUser.role !== 'CUSTOMER') {
+        txDb.prepare(`
+          INSERT INTO notifications (id, user_id, title, body, link_url, created_at)
+          VALUES (?, ?, 'Order Status Update', ?, ?, ?)
+        `).run(
+          `notif-${Date.now()}`,
+          order.customer_id,
+          `Your order #${order.order_number} status has been updated to ${targetStatus.replace(/_/g, ' ')}.`,
+          `/portal/orders/${order.id}`,
+          now
+        );
+      }
+
+      // 6. Record Audit Log inside the transaction
+      txDb.prepare(`
+        INSERT INTO audit_logs (id, actor_user_id, action_type, resource_type, resource_id, metadata_json, created_at)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
       `).run(
-        `notif-${Date.now()}`,
-        order.customer_id,
-        `Your order #${order.order_number} status has been updated to ${targetStatus.replace(/_/g, ' ')}.`,
-        `/portal/orders/${order.id}`,
+        `aud-${Date.now()}-${Math.random().toString(36).substring(2, 6)}`,
+        sessionUser.id,
+        'ORDER_STATE_TRANSITION',
+        'orders',
+        orderId,
+        JSON.stringify({
+          from: order.status,
+          to: targetStatus,
+          note,
+        }),
         now
       );
-    }
-
-    recordAuditLog(sessionUser.id, 'ORDER_STATE_TRANSITION', 'orders', orderId, {
-      from: order.status,
-      to: targetStatus,
-      note,
     });
 
     return NextResponse.json({

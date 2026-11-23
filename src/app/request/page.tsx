@@ -334,43 +334,45 @@ export default function RequestProductPage() {
   };
 
   return (
-    <div className="py-12 md:py-24 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto space-y-12 text-[#111215]">
+    <div className="py-12 md:py-24 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto space-y-12 text-[#121212]">
       {/* Title & Process Indicator */}
       <div className="text-center space-y-4">
-        <span className="ledger-stamp">PRIVATE CLIENT INTAKE &bull; PILOT COMMISSION</span>
-        <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight text-[#111215]">
+        <span className="font-sans text-[11px] font-medium tracking-[0.22em] uppercase text-[#121212] border-l-2 border-[#121212] pl-3">
+          Sourcing Request &bull; Private Desk
+        </span>
+        <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight text-[#121212]">
           Commission a Sourcing Search
         </h1>
-        <p className="text-xs sm:text-sm text-[#575A6B] font-mono max-w-xl mx-auto leading-relaxed">
-          Stage {currentStep} of IV &bull; Reviewed manually by our Manhattan procurement officers before an appraisal quote is issued.
+        <p className="text-xs sm:text-sm text-[#5A5852] font-sans max-w-xl mx-auto leading-relaxed">
+          Stage {currentStep} of IV &bull; Reviewed by our Manhattan procurement specialists before an itemized quote is issued.
         </p>
 
         {/* Draft Saving Status Bar */}
-        <div className="flex items-center justify-center gap-4 text-xs font-mono text-[#575A6B] pt-2">
+        <div className="flex items-center justify-center gap-4 text-xs font-mono text-[#5A5852] pt-2">
           {draftSavedTime ? (
             <span className="flex items-center gap-1.5 text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1 text-[10.5px]">
               <IconSave className="w-3.5 h-3.5" />
-              <span>Dossier auto-saved at {draftSavedTime}</span>
+              <span>Draft auto-saved at {draftSavedTime}</span>
             </span>
           ) : (
-            <span className="text-[10.5px] text-[#8E91A1]">Auto-saves to browser memory as you type</span>
+            <span className="text-[10.5px] text-[#8A8880]">Auto-saves to browser memory as you type</span>
           )}
           <button
             type="button"
             onClick={handleClearDraft}
-            className="text-[10.5px] text-[#846337] hover:text-[#111215] underline underline-offset-4 flex items-center gap-1"
+            className="text-[10.5px] text-[#5A5852] hover:text-[#121212] underline underline-offset-4 flex items-center gap-1"
           >
             <IconTrash className="w-3 h-3" /> Reset Form
           </button>
         </div>
       </div>
 
-      {/* 4-Step Progress Ribbon (Responsive without overflow) */}
-      <div className="grid grid-cols-4 gap-1 sm:gap-2 font-mono text-xs border-b border-[#E3D8CB] pb-3 overflow-hidden">
+      {/* 4-Step Progress Ribbon */}
+      <div className="grid grid-cols-4 gap-1 sm:gap-2 font-mono text-xs border-b border-[#E5E3DC] pb-3 overflow-hidden">
         {[
-          { step: 1, full: 'I. Specimen & Media', short: 'I. Media' },
+          { step: 1, full: 'I. Reference & Media', short: 'I. Media' },
           { step: 2, full: 'II. Specifications', short: 'II. Specs' },
-          { step: 3, full: 'III. Budget & Transit', short: 'III. Budget' },
+          { step: 3, full: 'III. Budget & Delivery', short: 'III. Budget' },
           { step: 4, full: 'IV. Authorization', short: 'IV. Review' },
         ].map((item) => (
           <button
@@ -383,10 +385,10 @@ export default function RequestProductPage() {
             }}
             className={`p-1.5 sm:p-3 text-center border-b-2 text-[9px] sm:text-[10.5px] font-mono tracking-wider uppercase transition-all truncate ${
               currentStep === item.step
-                ? 'border-[#9E7A4A] text-[#111215] font-bold bg-white'
+                ? 'border-[#121212] text-[#121212] font-semibold bg-white'
                 : currentStep > item.step
-                ? 'border-emerald-700 text-emerald-900 bg-[#FAF7F2]'
-                : 'border-transparent text-[#8E91A1] opacity-60'
+                ? 'border-emerald-700 text-emerald-900 bg-[#F3F2EC]'
+                : 'border-transparent text-[#8A8880] opacity-60'
             }`}
           >
             <span className="hidden sm:inline">{item.full}</span>
@@ -404,16 +406,16 @@ export default function RequestProductPage() {
       )}
 
       {/* Non-binding purchase reminder */}
-      <div className="dossier-paper p-4 flex items-start gap-3 text-xs text-[#575A6B] font-mono">
-        <IconInfo className="w-4 h-4 text-[#846337] shrink-0 mt-0.5" />
+      <div className="bg-[#F3F2EC] border border-[#E5E3DC] p-4 flex items-start gap-3 text-xs text-[#5A5852] font-sans">
+        <IconInfo className="w-4 h-4 text-[#121212] shrink-0 mt-0.5" />
         <p>
-          <strong className="text-[#111215] font-semibold">Fiduciary Notice: </strong>
-          Submitting this inquiry creates a non-binding feasibility assessment. It is not an order confirmation, purchase charge, or guarantee of product availability.
+          <strong className="text-[#121212] font-medium">Non-Binding Inquiry: </strong>
+          Submitting this inquiry creates a preliminary feasibility check. It is not an order confirmation, purchase charge, or guarantee of product availability.
         </p>
       </div>
 
       {/* Form Container */}
-      <form onSubmit={handleSubmit} className="luxury-card p-6 sm:p-12 space-y-10 bg-white">
+      <form onSubmit={handleSubmit} className="bg-white border border-[#E5E3DC] p-6 sm:p-12 space-y-10 shadow-sm rounded-[1px]">
         {/* STEP 1: PRODUCT IDENTIFIER & MEDIA */}
         {currentStep === 1 && (
           <div className="space-y-6">
@@ -436,7 +438,7 @@ export default function RequestProductPage() {
                 value={formData.productName}
                 onChange={handleChange}
                 placeholder="e.g. Air Jordan 1 Retro Low OG SP 'Canary' or Homme Plissé Pleated Jacket"
-                className="ivory-input w-full p-3 rounded-sm text-xs"
+                className="editorial-input w-full p-3 rounded-sm text-xs"
               />
               {stepErrors.productName && (
                 <p className="text-xs text-rose-600 font-mono">{stepErrors.productName}</p>
@@ -453,7 +455,7 @@ export default function RequestProductPage() {
                 value={formData.productUrl}
                 onChange={handleChange}
                 placeholder="https://www.nike.com/... or https://kith.com/..."
-                className="ivory-input w-full p-3 rounded-sm text-xs"
+                className="editorial-input w-full p-3 rounded-sm text-xs"
               />
               <p className="text-[11px] text-[#717584]">
                 A URL helps our team identify exact batch codes, retailers, and style numbers.
@@ -470,7 +472,7 @@ export default function RequestProductPage() {
                 value={formData.productDescription}
                 onChange={handleChange}
                 placeholder="Describe color scheme, specific collaboration year, archival season, or distinguishing features..."
-                className="ivory-input w-full p-3 rounded-sm text-xs"
+                className="editorial-input w-full p-3 rounded-sm text-xs"
               />
               {stepErrors.productUrl && (
                 <p className="text-xs text-rose-600 font-mono">{stepErrors.productUrl}</p>
@@ -503,12 +505,12 @@ export default function RequestProductPage() {
                     value={imageUrl}
                     onChange={(e) => setImageUrl(e.target.value)}
                     placeholder="Or paste external image URL..."
-                    className="ivory-input flex-1 p-2 rounded-sm text-xs"
+                    className="editorial-input flex-1 p-2 rounded-sm text-xs"
                   />
                   <button
                     type="button"
                     onClick={handleAddImageUrl}
-                    className="btn-luxury-outline px-4 py-2 text-[10.5px]"
+                    className="btn-outline px-4 py-2 text-[10.5px]"
                   >
                     Attach
                   </button>
@@ -560,7 +562,7 @@ export default function RequestProductPage() {
                   value={formData.brand}
                   onChange={handleChange}
                   placeholder="e.g. Maison Margiela, Nike, Bottega Veneta"
-                  className="ivory-input w-full p-3 rounded-sm text-xs"
+                  className="editorial-input w-full p-3 rounded-sm text-xs"
                 />
                 {stepErrors.brand && (
                   <p className="text-xs text-rose-600 font-mono">{stepErrors.brand}</p>
@@ -575,7 +577,7 @@ export default function RequestProductPage() {
                   name="category"
                   value={formData.category}
                   onChange={handleChange}
-                  className="ivory-input w-full p-3 rounded-sm text-xs"
+                  className="editorial-input w-full p-3 rounded-sm text-xs"
                 >
                   <option value="SNEAKERS_FOOTWEAR">Sneakers & Footwear (Verified Deadstock)</option>
                   <option value="CLOTHING">Designer Clothing (Apparel & Outerwear)</option>
@@ -595,7 +597,7 @@ export default function RequestProductPage() {
                   value={formData.sizeVariant}
                   onChange={handleChange}
                   placeholder="e.g. US 10.5 / EU 44.5 / Medium"
-                  className="ivory-input w-full p-3 rounded-sm text-xs"
+                  className="editorial-input w-full p-3 rounded-sm text-xs"
                 />
                 {stepErrors.sizeVariant && (
                   <p className="text-xs text-rose-600 font-mono">{stepErrors.sizeVariant}</p>
@@ -612,7 +614,7 @@ export default function RequestProductPage() {
                   value={formData.colorVariant}
                   onChange={handleChange}
                   placeholder="e.g. Canary Yellow / Light Silver / Chalk"
-                  className="ivory-input w-full p-3 rounded-sm text-xs"
+                  className="editorial-input w-full p-3 rounded-sm text-xs"
                 />
               </div>
             </div>
@@ -628,7 +630,7 @@ export default function RequestProductPage() {
                   value={formData.preferredSeller}
                   onChange={handleChange}
                   placeholder="e.g. Kith Soho, SSENSE, Dover Street Market"
-                  className="ivory-input w-full p-3 rounded-sm text-xs"
+                  className="editorial-input w-full p-3 rounded-sm text-xs"
                 />
               </div>
 
@@ -643,7 +645,7 @@ export default function RequestProductPage() {
                   max="5"
                   value={formData.quantity}
                   onChange={handleChange}
-                  className="ivory-input w-full p-3 rounded-sm text-xs"
+                  className="editorial-input w-full p-3 rounded-sm text-xs"
                 />
                 {stepErrors.quantity && (
                   <p className="text-xs text-rose-600 font-mono">{stepErrors.quantity}</p>
@@ -679,7 +681,7 @@ export default function RequestProductPage() {
                     value={formData.maxBudgetMajor}
                     onChange={handleChange}
                     placeholder="e.g. 750.00"
-                    className="ivory-input w-full pl-7 pr-3 py-3 rounded-sm text-xs"
+                    className="editorial-input w-full pl-7 pr-3 py-3 rounded-sm text-xs"
                   />
                 </div>
                 <p className="text-[11px] text-[#717584]">
@@ -698,7 +700,7 @@ export default function RequestProductPage() {
                   type="text"
                   value="USD ($ - United States Dollar)"
                   disabled
-                  className="ivory-input w-full p-3 rounded-sm text-xs bg-[#FAF8F5] text-[#717584]"
+                  className="editorial-input w-full p-3 rounded-sm text-xs bg-[#FAF8F5] text-[#717584]"
                 />
               </div>
             </div>
@@ -714,7 +716,7 @@ export default function RequestProductPage() {
                   value={formData.destinationPostalCode}
                   onChange={handleChange}
                   placeholder="e.g. 10022 or 90210"
-                  className="ivory-input w-full p-3 rounded-sm text-xs"
+                  className="editorial-input w-full p-3 rounded-sm text-xs"
                 />
                 {stepErrors.destinationPostalCode && (
                   <p className="text-xs text-rose-600 font-mono">{stepErrors.destinationPostalCode}</p>
@@ -729,7 +731,7 @@ export default function RequestProductPage() {
                   name="desiredDeliveryTimeframe"
                   value={formData.desiredDeliveryTimeframe}
                   onChange={handleChange}
-                  className="ivory-input w-full p-3 rounded-sm text-xs"
+                  className="editorial-input w-full p-3 rounded-sm text-xs"
                 >
                   <option value="Standard (5-10 business days)">Standard (5-10 business days)</option>
                   <option value="Priority Expedited (3-5 business days)">Priority Expedited (3-5 business days)</option>
@@ -748,7 +750,7 @@ export default function RequestProductPage() {
                 value={formData.destinationAddress}
                 onChange={handleChange}
                 placeholder="e.g. 575 Madison Ave, Apt 14B, New York, NY"
-                className="ivory-input w-full p-3 rounded-sm text-xs"
+                className="editorial-input w-full p-3 rounded-sm text-xs"
               />
             </div>
 
@@ -762,7 +764,7 @@ export default function RequestProductPage() {
                 value={formData.additionalNotes}
                 onChange={handleChange}
                 placeholder="e.g. Must include original box with intact lid; OG laces required; gift packaging requested..."
-                className="ivory-input w-full p-3 rounded-sm text-xs"
+                className="editorial-input w-full p-3 rounded-sm text-xs"
               />
             </div>
           </div>
@@ -791,7 +793,7 @@ export default function RequestProductPage() {
                   value={formData.customerName}
                   onChange={handleChange}
                   placeholder="Alexander Hayes"
-                  className="ivory-input w-full p-3 rounded-sm text-xs"
+                  className="editorial-input w-full p-3 rounded-sm text-xs"
                 />
                 {stepErrors.customerName && (
                   <p className="text-xs text-rose-600 font-mono">{stepErrors.customerName}</p>
@@ -808,7 +810,7 @@ export default function RequestProductPage() {
                   value={formData.customerEmail}
                   onChange={handleChange}
                   placeholder="alexander@example.com"
-                  className="ivory-input w-full p-3 rounded-sm text-xs"
+                  className="editorial-input w-full p-3 rounded-sm text-xs"
                 />
                 {stepErrors.customerEmail && (
                   <p className="text-xs text-rose-600 font-mono">{stepErrors.customerEmail}</p>
@@ -825,7 +827,7 @@ export default function RequestProductPage() {
                   value={formData.customerPhone}
                   onChange={handleChange}
                   placeholder="+1 (555) 019-2834"
-                  className="ivory-input w-full p-3 rounded-sm text-xs"
+                  className="editorial-input w-full p-3 rounded-sm text-xs"
                 />
               </div>
             </div>
@@ -907,12 +909,12 @@ export default function RequestProductPage() {
         )}
 
         {/* STEP CONTROLS & NAVIGATION */}
-        <div className="pt-6 border-t border-[#F2EDE4] flex items-center justify-between">
+        <div className="pt-6 border-t border-[#E5E3DC] flex items-center justify-between">
           {currentStep > 1 ? (
             <button
               type="button"
               onClick={prevStep}
-              className="btn-luxury-outline px-6 py-3.5 text-xs flex items-center gap-2"
+              className="btn-outline px-6 py-3.5 text-xs flex items-center gap-2"
             >
               <IconArrowLeft className="w-3.5 h-3.5" />
               <span>Back</span>
@@ -925,16 +927,16 @@ export default function RequestProductPage() {
             <button
               type="button"
               onClick={nextStep}
-              className="btn-obsidian px-8 py-3.5 text-xs flex items-center gap-2 group"
+              className="btn-noir px-8 py-3.5 text-xs flex items-center gap-2 group"
             >
               <span>Continue</span>
-              <IconArrowRight className="w-3.5 h-3.5 text-[#C4A575] group-hover:translate-x-1 transition-transform" />
+              <IconArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </button>
           ) : (
             <button
               type="submit"
               disabled={submitting}
-              className="btn-gilt px-9 py-4 text-xs shadow-luxury flex items-center gap-2 disabled:opacity-50 group"
+              className="btn-noir px-9 py-4 text-xs flex items-center gap-2 disabled:opacity-50 group"
             >
               <span>{submitting ? 'Transmitting Request...' : 'Submit Sourcing Request'}</span>
               <IconArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
